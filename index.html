@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Dein Rätsel 💜</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #9333ea, #ec4899);
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .message {
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    .button {
+      background: white;
+      color: #6b21a8;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin: 15px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .button:hover {
+      background: #f0e9ff;
+      transform: scale(1.05);
+    }
+    .hidden {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.2em;
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 10px;
+    }
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+      font-size: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Überraschung 💌</h1>
+  <p class="message">Hier sind drei kleine Botschaften für dich.  
+  Doch die letzte schaltest du nur frei, wenn du das Rätsel löst 🔑</p>
+  
+  <a href="#" class="button" onclick="showMessage(1)">1️⃣ Erste Botschaft</a>
+  <div id="msg1" class="hidden">
+    <p>💭 Immer wenn ich an dich denke, werde ich ruhig und glücklich.</p>
+  </div>
+  
+  <a href="#" class="button" onclick="showMessage(2)">2️⃣ Zweite Botschaft</a>
+  <div id="msg2" class="hidden">
+    <p>🌌 Du bist mein Lieblingsmensch – egal wie weit die Entfernung ist.</p>
+  </div>
+  
+  <a href="#" class="button" onclick="showPassword()">3️⃣ Finale Botschaft</a>
+  <div id="passwordBox" class="hidden">
+    <p>Um die letzte Botschaft zu sehen, beantworte das Rätsel:</p>
+    <p><i>„Welche Blume ist mein Lieblingssymbol?“ 🌸</i></p>
+    <input type="text" id="answer" placeholder="Antwort eingeben...">
+    <div>
+      <button class="button" onclick="checkPassword()">Freischalten</button>
+    </div>
+    <p id="error" style="color:#ffd1dc; display:none;">Falsche Antwort 😅 Versuch es nochmal!</p>
+  </div>
+  
+  <div id="msg3" class="hidden">
+    <p>🎁 Tadaa! Hier ist dein Geschenk:</p>
+    <p><a href="https://open.spotify.com/" target="_blank" style="color:#fff;">Eine Playlist nur für dich 💜</a></p>
+    <p>Und noch was: Ich liebe es, wie du immer mein Herz zum Lachen bringst ✨</p>
+  </div>
+
+  <script>
+    function showMessage(num) {
+      document.getElementById("msg" + num).style.display = "block";
+    }
+    function showPassword() {
+      document.getElementById("passwordBox").style.display = "block";
+    }
+    function checkPassword() {
+      const input = document.getElementById("answer").value.trim().toLowerCase();
+      const solution = "akelei"; // <-- dein Passwort hier ändern!
+      
+      if(input === solution) {
+        document.getElementById("msg3").style.display = "block";
+        document.getElementById("error").style.display = "none";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
